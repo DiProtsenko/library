@@ -2,6 +2,7 @@ package dev.protsenko.library.controllers;
 
 import dev.protsenko.library.entities.Book;
 import dev.protsenko.library.services.BookService;
+import dev.protsenko.library.services.BookServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ public class BookController {
 
     private BookService bookService;
 
-    BookController(BookService bookService) {
+    BookController(BookServiceImpl bookService) {
         this.bookService = bookService;
     }
 

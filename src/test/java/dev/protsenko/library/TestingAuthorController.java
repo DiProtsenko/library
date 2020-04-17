@@ -3,7 +3,7 @@ package dev.protsenko.library;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.protsenko.library.controllers.AuthorController;
 import dev.protsenko.library.entities.Author;
-import dev.protsenko.library.services.AuthorService;
+import dev.protsenko.library.services.AuthorServiceImpl;
 import org.hamcrest.core.Is;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -31,7 +31,7 @@ public class TestingAuthorController {
     private MockMvc mvc;
 
     @MockBean
-    private AuthorService service;
+    private AuthorServiceImpl service;
 
     public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), StandardCharsets.UTF_8);
 

@@ -1,7 +1,7 @@
 package dev.protsenko.library;
 
 import dev.protsenko.library.entities.Author;
-import dev.protsenko.library.services.AuthorService;
+import dev.protsenko.library.services.AuthorServiceImpl;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ public class TestingAuthorWebLayer {
     private TestRestTemplate restTemplate;
 
     @Autowired
-    private AuthorService authorService;
+    private AuthorServiceImpl authorService;
 
     public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), StandardCharsets.UTF_8);
 

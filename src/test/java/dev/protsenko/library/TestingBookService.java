@@ -2,8 +2,8 @@ package dev.protsenko.library;
 
 import dev.protsenko.library.entities.Author;
 import dev.protsenko.library.entities.Book;
-import dev.protsenko.library.services.AuthorService;
-import dev.protsenko.library.services.BookService;
+import dev.protsenko.library.services.AuthorServiceImpl;
+import dev.protsenko.library.services.BookServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,10 +17,10 @@ import java.util.Set;
 public class TestingBookService {
 
     @Autowired
-    BookService bookService;
+    BookServiceImpl bookService;
 
     @Autowired
-    AuthorService authorService;
+    AuthorServiceImpl authorService;
 
     public Book getBookForTest(){
         Author author = new Author("Олдос","Хаксли","");

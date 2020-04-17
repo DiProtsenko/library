@@ -1,7 +1,7 @@
 package dev.protsenko.library;
 
 import dev.protsenko.library.entities.Author;
-import dev.protsenko.library.services.AuthorService;
+import dev.protsenko.library.services.AuthorServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +12,7 @@ import org.springframework.test.context.TestPropertySource;
 public class TestingAuthorService {
 
     @Autowired
-    private AuthorService authorService;
+    private AuthorServiceImpl authorService;
 
 
     @Test

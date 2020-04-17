@@ -2,6 +2,7 @@ package dev.protsenko.library.controllers;
 
 import dev.protsenko.library.entities.Author;
 import dev.protsenko.library.services.AuthorService;
+import dev.protsenko.library.services.AuthorServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ public class AuthorController {
 
     AuthorService authorService;
 
-    AuthorController(AuthorService authorService) {
+    AuthorController(AuthorServiceImpl authorService) {
         this.authorService = authorService;
     }
 

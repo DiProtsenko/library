@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.protsenko.library.controllers.BookController;
 import dev.protsenko.library.entities.Author;
 import dev.protsenko.library.entities.Book;
-import dev.protsenko.library.services.BookService;
+import dev.protsenko.library.services.BookServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ public class TestingBookController {
     private MockMvc mvc;
 
     @MockBean
-    private BookService service;
+    private BookServiceImpl service;
 
     public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), StandardCharsets.UTF_8);
 
