@@ -14,17 +14,20 @@ public class Author {
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<Book> books = new HashSet<>();
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
     private String firstName;
+
     @Column(nullable = false)
     private String familyName;
+
     private String fatherName;
 
     public Author() {
-
     }
 
     public Author(String firstName, String familyName, String fatherName) {
@@ -32,6 +35,5 @@ public class Author {
         this.familyName = familyName;
         this.fatherName = fatherName;
     }
-
 
 }

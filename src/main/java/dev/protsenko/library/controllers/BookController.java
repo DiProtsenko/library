@@ -13,7 +13,7 @@ import java.util.Set;
 @RequestMapping("books")
 public class BookController {
 
-    private BookService bookService;
+    private final BookService bookService;
 
     BookController(BookServiceImpl bookService) {
         this.bookService = bookService;
@@ -51,7 +51,6 @@ public class BookController {
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
-
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<String> deleteBook(@PathVariable Long id) {

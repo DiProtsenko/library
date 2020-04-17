@@ -17,10 +17,10 @@ import java.util.Set;
 public class TestingBookService {
 
     @Autowired
-    BookServiceImpl bookService;
+    private BookServiceImpl bookService;
 
     @Autowired
-    AuthorServiceImpl authorService;
+    private AuthorServiceImpl authorService;
 
     public Book getBookForTest(){
         Author author = new Author("Олдос","Хаксли","");

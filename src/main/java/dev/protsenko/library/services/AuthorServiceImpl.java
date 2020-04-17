@@ -9,7 +9,7 @@ import java.util.Set;
 @Service
 public class AuthorServiceImpl implements AuthorService {
 
-    final private AuthorRepository authorRepository;
+    private final AuthorRepository authorRepository;
 
     AuthorServiceImpl(AuthorRepository authorRepository) {
         this.authorRepository = authorRepository;

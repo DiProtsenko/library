@@ -14,7 +14,6 @@ public class TestingAuthorService {
     @Autowired
     private AuthorServiceImpl authorService;
 
-
     @Test
     public void createCorrectAuthor(){
         Author author = new Author("Олдос", "Хаксли", "");

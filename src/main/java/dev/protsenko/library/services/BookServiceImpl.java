@@ -10,8 +10,9 @@ import java.util.Set;
 @Service
 public class BookServiceImpl implements BookService {
 
-    BookRepository bookRepository;
-    AuthorService authorService;
+    private final BookRepository bookRepository;
+
+    private final AuthorService authorService;
 
     public BookServiceImpl(BookRepository bookRepository, AuthorServiceImpl authorService) {
         this.bookRepository = bookRepository;
@@ -92,7 +93,6 @@ public class BookServiceImpl implements BookService {
                 }
             }
         }
-
         return false;
     }
 

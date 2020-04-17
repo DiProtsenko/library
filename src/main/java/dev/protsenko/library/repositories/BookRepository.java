@@ -13,5 +13,4 @@ public interface BookRepository extends CrudRepository<Book, Long> {
 
     Set<Book> findAll();
 
-
 }
