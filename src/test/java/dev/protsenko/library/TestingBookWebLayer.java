@@ -1,10 +1,10 @@
 package dev.protsenko.library;
 
 
-import dev.protsenko.library.Services.AuthorService;
-import dev.protsenko.library.Services.BookService;
 import dev.protsenko.library.entities.Author;
 import dev.protsenko.library.entities.Book;
+import dev.protsenko.library.services.AuthorService;
+import dev.protsenko.library.services.BookService;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -16,8 +16,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.*;
 import org.springframework.test.context.TestPropertySource;
 
-import java.net.URI;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource(locations = "classpath:application-testing.properties")
@@ -36,25 +35,23 @@ public class TestingBookWebLayer {
     @Autowired
     private BookService bookService;
 
-    public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
+    public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), StandardCharsets.UTF_8);
 
     //Данный тест тестирует создание книги, и пробует создать дубликат книги (автор и название)
     @Test
     @Order(1)
-    public void userCreateBook() throws Exception{
-
+    public void userCreateBook() {
         final String bookUrl = "http://localhost:" + port + "/books";
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(APPLICATION_JSON_UTF8);
         Book book = new Book("О дивный новый мир", "Антиутопический сатирический роман английского писателя Олдоса Хаксли, опубликованный в 1932 году.");
-        Author author = authorService.create(new Author("Олдос","Хаксли",""));
+        Author author = authorService.create(new Author("Олдос", "Хаксли", ""));
         book.getAuthors().add(author);
-        HttpEntity<Book> bookRequest = new HttpEntity<>(book,headers);
-        ResponseEntity<String> bookResponse = restTemplate.postForEntity(bookUrl,bookRequest,String.class);
+        HttpEntity<Book> bookRequest = new HttpEntity<>(book, headers);
+        ResponseEntity<String> bookResponse = restTemplate.postForEntity(bookUrl, bookRequest, String.class);
         assert bookResponse.getStatusCodeValue() == 202;
-        ResponseEntity<String> duplicateBookResponse = restTemplate.postForEntity(bookUrl,bookRequest,String.class);
+        ResponseEntity<String> duplicateBookResponse = restTemplate.postForEntity(bookUrl, bookRequest, String.class);
         assert duplicateBookResponse.getStatusCodeValue() == 400;
-
     }
 
     @Test

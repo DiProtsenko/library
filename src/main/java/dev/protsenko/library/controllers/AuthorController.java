@@ -1,7 +1,7 @@
 package dev.protsenko.library.controllers;
 
-import dev.protsenko.library.Services.AuthorService;
 import dev.protsenko.library.entities.Author;
+import dev.protsenko.library.services.AuthorService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,8 +44,7 @@ public class AuthorController {
 
     @GetMapping(produces = "application/json")
     public Set<Author> getAuthors() {
-        Set<Author> authorList = authorService.getAll();
-        return authorList;
+        return authorService.getAll();
     }
 
     @GetMapping(path = "/{id}", produces = "application/json")

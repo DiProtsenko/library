@@ -1,9 +1,9 @@
 package dev.protsenko.library;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dev.protsenko.library.Services.AuthorService;
 import dev.protsenko.library.controllers.AuthorController;
 import dev.protsenko.library.entities.Author;
+import dev.protsenko.library.services.AuthorService;
 import org.hamcrest.core.Is;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -15,7 +15,7 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,7 +33,7 @@ public class TestingAuthorController {
     @MockBean
     private AuthorService service;
 
-    public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
+    public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), StandardCharsets.UTF_8);
 
     @Test
     public void createCorrectAuthor() throws Exception {

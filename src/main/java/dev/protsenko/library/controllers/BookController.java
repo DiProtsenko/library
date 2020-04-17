@@ -1,7 +1,7 @@
 package dev.protsenko.library.controllers;
 
-import dev.protsenko.library.Services.BookService;
 import dev.protsenko.library.entities.Book;
+import dev.protsenko.library.services.BookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,6 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    //Необходимо сделать более детальный вывод почему книга не была создана
     @PostMapping(consumes = "application/json", produces = "application/json")
     public ResponseEntity<String> addBook(@RequestBody Book book) {
         Book bookToCreate = bookService.create(book);

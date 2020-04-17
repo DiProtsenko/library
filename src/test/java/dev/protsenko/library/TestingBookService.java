@@ -1,10 +1,9 @@
 package dev.protsenko.library;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import dev.protsenko.library.Services.AuthorService;
-import dev.protsenko.library.Services.BookService;
 import dev.protsenko.library.entities.Author;
 import dev.protsenko.library.entities.Book;
+import dev.protsenko.library.services.AuthorService;
+import dev.protsenko.library.services.BookService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

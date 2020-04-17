@@ -1,4 +1,4 @@
-package dev.protsenko.library.Services;
+package dev.protsenko.library.services;
 
 import dev.protsenko.library.entities.Author;
 import dev.protsenko.library.entities.Book;
@@ -21,8 +21,7 @@ public class BookService {
     public Book create(Book book) {
         if (isCorrect(book)) {
             if (!haveDuplicates(book)) {
-                Book savedBook = bookRepository.save(book);
-                return savedBook;
+                return bookRepository.save(book);
             }
         }
         return null;
@@ -70,8 +69,7 @@ public class BookService {
         }
         if (book.getAuthors() != null && book.getName() != null && book.getDescription() != null) {
             if (book.getAuthors().size() > 0 && book.getName().length() > 0 && book.getDescription().length() > 0) {
-                boolean authorsCorrect = book.getAuthors().stream().allMatch(author -> author != null && authorService.get(author.getId()) != null);
-                return authorsCorrect;
+                return book.getAuthors().stream().allMatch(author -> author != null && authorService.get(author.getId()) != null);
             }
         }
         return false;

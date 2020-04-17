@@ -1,7 +1,7 @@
 package dev.protsenko.library;
 
-import dev.protsenko.library.Services.AuthorService;
 import dev.protsenko.library.entities.Author;
+import dev.protsenko.library.services.AuthorService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

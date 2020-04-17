@@ -1,7 +1,7 @@
 package dev.protsenko.library;
 
-import dev.protsenko.library.Services.AuthorService;
 import dev.protsenko.library.entities.Author;
+import dev.protsenko.library.services.AuthorService;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.*;
 import org.springframework.test.context.TestPropertySource;
-import java.nio.charset.Charset;
+
+import java.nio.charset.StandardCharsets;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource(locations = "classpath:application-testing.properties")
@@ -28,11 +29,11 @@ public class TestingAuthorWebLayer {
     @Autowired
     private AuthorService authorService;
 
-    public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
+    public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), StandardCharsets.UTF_8);
 
     @Test
     @Order(1)
-    public void userCreateCorrectAuthor() throws Exception {
+    public void userCreateCorrectAuthor() {
         final String url = "http://localhost:" + port + "/authors";
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(APPLICATION_JSON_UTF8);
@@ -44,7 +45,7 @@ public class TestingAuthorWebLayer {
 
     @Test
     @Order(2)
-    public void userCreateIncorrectAuthor() throws Exception {
+    public void userCreateIncorrectAuthor() {
         final String url = "http://localhost:" + port + "/authors";
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(APPLICATION_JSON_UTF8);
@@ -56,7 +57,7 @@ public class TestingAuthorWebLayer {
 
     @Test
     @Order(3)
-    public void userTryCreateAuthorWithGarbageData() throws Exception {
+    public void userTryCreateAuthorWithGarbageData() {
         final String url = "http://localhost:" + port + "/authors";
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(APPLICATION_JSON_UTF8);

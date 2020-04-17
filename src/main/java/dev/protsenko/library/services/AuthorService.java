@@ -1,4 +1,4 @@
-package dev.protsenko.library.Services;
+package dev.protsenko.library.services;
 
 import dev.protsenko.library.entities.Author;
 import dev.protsenko.library.repositories.AuthorRepository;
@@ -17,8 +17,7 @@ public class AuthorService {
 
     public Author get(Long id) {
         if (id != null) {
-            Author author = authorRepository.getById(id);
-            return author;
+            return authorRepository.getById(id);
         }
         return null;
     }
@@ -26,8 +25,7 @@ public class AuthorService {
     public Author create(Author author) {
         if (author != null) {
             if (isCorrect(author)) {
-                Author createdAuthor = authorRepository.save(author);
-                return createdAuthor;
+                return authorRepository.save(author);
             }
         }
         return null;
